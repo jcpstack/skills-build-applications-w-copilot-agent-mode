@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import activitiesRouter from './routes/activities.js';
 import leaderboardRouter from './routes/leaderboard.js';
 import teamsRouter from './routes/teams.js';
@@ -14,6 +15,7 @@ const app = express();
 const port = Number(process.env.PORT || 8000);
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/api/', (_request, response) => {
   response.json({ apiBaseUrl });
