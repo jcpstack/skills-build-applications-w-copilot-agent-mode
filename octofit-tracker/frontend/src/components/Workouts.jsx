@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { fetchCollection } from '../api.js'
 import DataView from './DataView.jsx'
 
-const endpoint = '/api/workouts/'
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME
+const endpoint = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev/api/workouts/`
+  : 'http://localhost:8000/api/workouts/'
 
 function Workouts() {
   const [items, setItems] = useState([])
